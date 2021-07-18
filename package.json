@@ -10,8 +10,8 @@
     "app": "yarn workspace @expo/app expo start"
   },
   "workspaces": [
-    "apps/*",
-    "packages/*"
+    "packages/*",
+    "examples/*"
   ],
   "devDependencies": {
     "expo-yarn-workspaces": "^1.5.0"

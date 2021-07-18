@@ -2,6 +2,8 @@
 .expo
 __generated__
 web-build
+*.tgz
+package
 
 # macOS
 .DS_Store
