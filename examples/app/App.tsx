@@ -1,10 +1,9 @@
 import React from "react";
 import { SafeAreaView, StyleSheet, Text, View } from "react-native";
-import { StackContainer, createStack } from "react-native-async-stack";
+import { StackContainer, Stack } from "react-native-async-stack";
 
-const MyStack = createStack();
 
-MyStack.push({
+Stack.push({
   element: (
     <SafeAreaView style={{ flex: 1 }}>
       <Text>Hello from the application</Text>
@@ -14,7 +13,7 @@ MyStack.push({
 
 export default function App() {
   return (
-    <StackContainer stack={MyStack}>
+    <StackContainer stack={Stack}>
       <SafeAreaView style={styles.container}>
         <Text>Hello from the application</Text>
       </SafeAreaView>
