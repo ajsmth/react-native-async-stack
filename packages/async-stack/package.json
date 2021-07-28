@@ -1,6 +1,6 @@
 {
   "name": "react-native-async-stack",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "./build/index.tsx",
   "types": "./build/index.d.ts",
   "license": "MIT",
