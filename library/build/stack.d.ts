@@ -10,8 +10,7 @@ export interface IScreen {
 }
 interface IStackProps {
     stack: IStack<IScreen>;
-    children?: React.ReactNode;
 }
-declare function NativeStack({ stack, children }: IStackProps): JSX.Element;
+declare function NativeStack({ stack }: IStackProps): JSX.Element;
 declare const Stack: typeof NativeStack;
 export { Stack };

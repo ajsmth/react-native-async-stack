@@ -4,8 +4,8 @@ import { IScreen, Stack as StackComponent } from "./stack";
 
 const baseStack = createAsyncStack<IScreen>();
 
-function StackContainer({ children, stack = baseStack }) {
-  return <StackComponent stack={stack}>{children}</StackComponent>;
+function StackContainer({ stack = baseStack }) {
+  return <StackComponent stack={stack} />;
 }
 
 function createStack() {

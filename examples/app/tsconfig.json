@@ -1,5 +1,0 @@
-{
-  "compilerOptions": {},
-  "include": ["../../packages/async-stack"],
-  "extends": "expo/tsconfig.base"
-}

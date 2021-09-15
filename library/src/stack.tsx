@@ -22,17 +22,15 @@ export interface IScreen {
 
 interface IStackProps {
   stack: IStack<IScreen>;
-  children?: React.ReactNode;
 }
 
-function WebStack({ stack, children }: IStackProps) {
+function WebStack({ stack }: IStackProps) {
   const screens = useStackItems(stack);
 
   return (
     <WebScreenStack
       style={{ ...StyleSheet.absoluteFillObject, overflow: "hidden" }}
     >
-      {children}
       {screens.map((screen) => {
         return (
           <WebScreen
@@ -104,12 +102,11 @@ function WebScreen({ children, onPushEnd, onPopEnd, status }: IWebScreen) {
   );
 }
 
-function NativeStack({ stack, children }: IStackProps) {
+function NativeStack({ stack }: IStackProps) {
   const screens = useStackItems(stack);
 
   return (
     <NativeScreenStack style={StyleSheet.absoluteFill}>
-      <NativeScreen status="settled">{children}</NativeScreen>
       {screens.map((screen, i) => {
         return (
           <NativeScreen

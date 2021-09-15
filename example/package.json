@@ -1,5 +1,5 @@
 {
-  "name": "app",
+  "name": "example",
   "version": "1.0.0",
   "private": true,
   "main": "./__generated__/AppEntry.js",
@@ -12,23 +12,19 @@
     "postinstall": "expo-yarn-workspaces postinstall"
   },
   "dependencies": {
-    "expo": "~42.0.0",
+    "expo": "~42.0.1",
     "expo-status-bar": "~1.0.4",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-42.0.0.tar.gz",
-    "react-native-async-stack": "*",
-    "react-native-screens": "~3.4.0",
-    "react-native-web": "~0.13.12"
+    "react-native-web": "~0.13.12",
+    "react-native-async-stack": "*"
   },
   "devDependencies": {
-    "@babel/core": "~7.9.0",
-    "typescript": "~4.0.0"
-  },
-  "expo-yarn-workspaces": {
-    "symlinks": [
-      "expo-constants",
-      "expo-updates"
-    ]
+    "@babel/core": "^7.9.0",
+    "@types/react": "~16.9.35",
+    "@types/react-native": "~0.63.2",
+    "typescript": "~4.0.0",
+    "expo-yarn-workspaces": "^1.5.0"
   }
 }

@@ -10,25 +10,6 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
-};
 var __rest = (this && this.__rest) || function (s, e) {
     var t = {};
     for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
@@ -40,17 +21,16 @@ var __rest = (this && this.__rest) || function (s, e) {
         }
     return t;
 };
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 exports.Stack = void 0;
-var React = __importStar(require("react"));
+var React = require("react");
 var create_async_stack_1 = require("./create-async-stack");
 var react_native_screens_1 = require("react-native-screens");
 var react_native_1 = require("react-native");
 function WebStack(_a) {
-    var stack = _a.stack, children = _a.children;
-    var screens = create_async_stack_1.useStackItems(stack);
+    var stack = _a.stack;
+    var screens = (0, create_async_stack_1.useStackItems)(stack);
     return (<WebScreenStack style={__assign(__assign({}, react_native_1.StyleSheet.absoluteFillObject), { overflow: "hidden" })}>
-      {children}
       {screens.map(function (screen) {
             return (<WebScreen key={screen.key} status={screen.status} onPushEnd={function () { return stack.onPushEnd(screen.key); }} onPopEnd={function () { return stack.onPopEnd(screen.key); }}>
             {screen.element}
@@ -72,7 +52,7 @@ function WebScreen(_a) {
                 stiffness: 1000,
                 damping: 500,
                 mass: 3,
-                overshootClamping: true,
+                overshootClamping: true
             }).start(onPushEnd);
         }
         if (status === "popping") {
@@ -82,23 +62,22 @@ function WebScreen(_a) {
                 stiffness: 1000,
                 damping: 500,
                 mass: 3,
-                overshootClamping: true,
+                overshootClamping: true
             }).start(onPopEnd);
         }
     }, [status]);
     var translateX = animatedValue.current.interpolate({
         inputRange: [0, 1],
-        outputRange: ["100%", "0%"],
+        outputRange: ["100%", "0%"]
     });
     return (<react_native_1.Animated.View pointerEvents={status === "popping" ? "none" : "auto"} style={[react_native_1.StyleSheet.absoluteFill, { transform: [{ translateX: translateX }] }]}>
       {children}
     </react_native_1.Animated.View>);
 }
 function NativeStack(_a) {
-    var stack = _a.stack, children = _a.children;
-    var screens = create_async_stack_1.useStackItems(stack);
+    var stack = _a.stack;
+    var screens = (0, create_async_stack_1.useStackItems)(stack);
     return (<react_native_screens_1.ScreenStack style={react_native_1.StyleSheet.absoluteFill}>
-      <NativeScreen status="settled">{children}</NativeScreen>
       {screens.map(function (screen, i) {
             return (<NativeScreen index={i} key={screen.key} status={screen.status} onPushEnd={function () { return stack.onPushEnd(screen.key); }} onPopEnd={function () { return stack.onPopEnd(screen.key); }} {...(screen.screenProps || {})}>
             <react_native_screens_1.ScreenStackHeaderConfig hidden={!screen.headerProps} {...screen.headerProps}/>
@@ -125,6 +104,6 @@ function NativeScreen(_a) {
 var Stack = react_native_1.Platform.select({
     native: NativeStack,
     web: WebStack,
-    default: WebStack,
+    "default": WebStack
 });
 exports.Stack = Stack;
